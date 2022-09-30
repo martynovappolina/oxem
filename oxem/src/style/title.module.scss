@@ -1,0 +1,29 @@
+.title {
+    &__container {
+        width: 100%;
+        display: flex;
+        margin-top: 64px;
+    }
+
+    &__text {
+        width: 753px;
+        height: 98px;
+    
+        font-family: 'Nekst-Black';
+        font-style: normal;
+        font-weight: 900;
+        font-size: 54px;
+        line-height: 90%;
+        color: #111111;
+    
+        padding-bottom: 32px;
+    }
+}
+
+@media (max-width: 768) {
+    .title {
+        &__text {
+            font-size: 34px;
+        }
+    }   
+}

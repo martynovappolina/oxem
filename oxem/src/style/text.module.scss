@@ -1,0 +1,16 @@
+.small__text {
+    font-family: 'Gilroy';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #575757;
+
+    margin-bottom: 24px;
+}
+
+@media(max-width: 320px) {
+    .small__text {
+        font-size: 14px;
+    }
+}
