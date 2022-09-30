@@ -1,0 +1,116 @@
+@import './variables.scss';
+
+.final {
+    &__main__container {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 51px;
+    }
+
+    &__small__container {
+        display: flex;
+        width: 55%;
+        justify-content: space-between;
+    }
+
+    &__price {
+        font-family: 'Nekst-Black';
+        font-style: normal;
+        font-weight: 900;
+        font-size: 54px;
+        line-height: 90%;
+        color: #575757;
+    }
+
+    &__button {
+        width: 426px;
+        height: 68px;
+        background: $orange;
+        border-radius: 40px;
+    
+        text-align: center;
+        vertical-align: middle;
+        font-family: 'Nekst-Black';
+        font-style: normal;
+        font-weight: 900;
+        font-size: 30px;
+        line-height: 68px;
+        color: #FFFFFF;
+    
+        margin-top: 10px;
+
+        &:hover {
+            background-color: black;
+            cursor: pointer;
+        }
+
+        &:visited {
+            background: #575757;
+        }
+
+        &:disabled {
+            background: #FF951466;
+        }
+
+        &__loading {
+            width: 426px;
+            height: 68px;
+            background: $orange;
+            border-radius: 40px;
+        
+            text-align: center;
+            vertical-align: middle;
+            font-family: 'Nekst-Black';
+            font-style: normal;
+            font-weight: 900;
+            font-size: 30px;
+            line-height: 68px;
+            color: #FFFFFF;
+        
+            margin-top: 10px;
+        
+            background-image: url('./icons/loading.svg');
+            background-repeat: no-repeat;
+            background-position-x: center;
+            background-position-y: center;
+        }
+    }
+
+}
+
+@media (max-width:1024px) {
+    .final {
+        &__main__container {
+            flex-direction: column;
+        }
+
+        &__button {
+            margin-top: 50px;
+        }
+    }
+}
+
+@media (max-width: 320px) {
+    .final {
+        &__small__container {
+            flex-direction: column;
+            width: 100%;
+        }
+
+        &__small__block {
+            margin-top: 25px;
+        }
+
+        &__price {
+            font-size: 22px;
+        }
+
+        &__button {
+            width: 280px;
+            height: 60px;
+    
+            font-size: 22px;
+        }
+    }
+}
