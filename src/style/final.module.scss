@@ -3,14 +3,13 @@
 .final {
     &__main__container {
         display: flex;
-        width: 78%;
         justify-content: space-between;
         margin-top: 51px;
     }
 
     &__small__container {
         display: flex;
-        width: 55%;
+        width: 53%;
         justify-content: space-between;
     }
 
@@ -82,7 +81,7 @@
 @media (max-width:1024px) {
     .final {
         &__small__container {
-            width: 78%;
+            width: 70%;
         }
 
         &__main__container {
