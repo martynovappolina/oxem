@@ -45,7 +45,7 @@ const App = () => {
         setW2(
             percent < 10? 0 + 'px': percent > 60? document.getElementById('line2').offsetWidth + 'px':
             (percent - 10) / 50 * document.getElementById('line2').offsetWidth + 'px');
-    }, [percent])
+    }, [percent, autoPrice])
 
     const [period, setPeriod] = useState(1);
     const changePeriod = useCallback(() => {
@@ -95,62 +95,62 @@ const App = () => {
 
     return (
         <div className={mainStyle.main}>
-                <div className={titleStyle.title__container}>
-                    <div className={titleStyle.title__text}>
-                        Рассчитайте стоимость автомобиля в лизинг
-                    </div>
-                </div>
-                <div className={inputStyle.input__main__container}>
-                    <div className={inputStyle.input__line__container}>
-                        <div className={textStyle.small__text}>Стоимость автомобиля</div>
-                        <div className={inputStyle.input__line____container}>
-                            <input className={inputStyle.input__line} name="line" value={autoPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} onChange={inputAutoPrice} onMouseLeave={changeAutoPrice}/>
-                            <input type="range" className={inputStyle.input__range} id='line1' name="range" value={autoPrice} onChange={inputAutoPrice} min="1000000" max="6000000"/>
-                            <div style={{width: w1}} className={inputStyle.input__range__progress}></div>
-                            <div className={inputStyle.input__line__icon}>₽</div>
-                        </div>
-                    </div>
-
-                    <div className={inputStyle.input__line__container}>
-                        <div className={textStyle.small__text}>Первоначальный взнос</div>
-                        <div className={inputStyle.input__line____container}>
-                            <div className={inputStyle.input__line__passive}>{firstPayment.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}</div>
-                            <input type="range" className={inputStyle.input__range} id='line2' name="range" value={percent} onChange={inputPercent} min="10" max="60" />
-                            <div style={{width: w2}} className={inputStyle.input__range__progress}></div>
-                            <input className={inputStyle.input__percent} value={percent} onChange={inputPercent} onMouseLeave={changePercent}></input>
-                            <div className={inputStyle.input__percent__icon}>%</div>
-                        </div>
-                    </div>
-
-                    <div className={inputStyle.input__line__container}>
-                        <div className={textStyle.small__text}>Срок лизинга</div>
-                        <div className={inputStyle.input__line____container}>
-                            <input className={inputStyle.input__line} name="line" value={period} onChange={inputPeriod} onMouseLeave={changePeriod} />
-                            <input type="range" id='line3' className={inputStyle.input__range} name="range" value={period} onChange={inputPeriod} min="1" max="60" />
-                            <div style={{width: w3}} className={inputStyle.input__range__progress}></div>
-                            <div className={inputStyle.input__line__icon}>мес.</div>
-                        </div>
-                    </div>
-                </div>
-                <div className={finalStyle.final__main__container}>
-                    <div className={finalStyle.final__small__container}>
-                        <div className={finalStyle.final__small__block}>
-                            <div className={textStyle.small__text}>Сумма договора лизинга</div>
-                            <div className={finalStyle.final__price}>{sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} ₽</div>
-                        </div>
-
-                        <div className={finalStyle.final__small__block}>
-                            <div className={textStyle.small__text}>Ежемесячный платеж от</div>
-                            <div className={finalStyle.final__price}>{monthlyPayment.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} ₽</div>
-                        </div>
-                    </div>
-                    {
-                        (meta == "initial") ?
-                        <div className={finalStyle.final__button} onClick={postData}>Оставить заявку</div>:
-                        <div className={finalStyle.final__button__loading} />
-                    }
+            <div className={titleStyle.title__container}>
+                <div className={titleStyle.title__text}>
+                    Рассчитайте стоимость автомобиля в лизинг
                 </div>
             </div>
+            <div className={inputStyle.input__main__container}>
+                <div className={inputStyle.input__line__container}>
+                    <div className={textStyle.small__text}>Стоимость автомобиля</div>
+                    <div className={inputStyle.input__line____container}>
+                        <input className={inputStyle.input__line} name="line" value={autoPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} onChange={inputAutoPrice} onMouseLeave={changeAutoPrice}/>
+                        <input type="range" className={inputStyle.input__range} id='line1' name="range" value={autoPrice} onChange={inputAutoPrice} min="1000000" max="6000000"/>
+                        <div style={{width: w1}} className={inputStyle.input__range__progress}></div>
+                        <div className={inputStyle.input__line__icon}>₽</div>
+                    </div>
+                </div>
+
+                <div className={inputStyle.input__line__container}>
+                    <div className={textStyle.small__text}>Первоначальный взнос</div>
+                    <div className={inputStyle.input__line____container}>
+                        <div className={inputStyle.input__line__passive}>{firstPayment.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}</div>
+                        <input type="range" className={inputStyle.input__range} id='line2' name="range" value={percent} onChange={inputPercent} min="10" max="60" />
+                        <div style={{width: w2}} className={inputStyle.input__range__progress}></div>
+                        <input className={inputStyle.input__percent} value={percent} onChange={inputPercent} onMouseLeave={changePercent}></input>
+                        <div className={inputStyle.input__percent__icon}>%</div>
+                    </div>
+                </div>
+
+                <div className={inputStyle.input__line__container}>
+                    <div className={textStyle.small__text}>Срок лизинга</div>
+                    <div className={inputStyle.input__line____container}>
+                        <input className={inputStyle.input__line} name="line" value={period} onChange={inputPeriod} onMouseLeave={changePeriod} />
+                        <input type="range" id='line3' className={inputStyle.input__range} name="range" value={period} onChange={inputPeriod} min="1" max="60" />
+                        <div style={{width: w3}} className={inputStyle.input__range__progress}></div>
+                        <div className={inputStyle.input__line__icon}>мес.</div>
+                    </div>
+                </div>
+            </div>
+            <div className={finalStyle.final__main__container}>
+                <div className={finalStyle.final__small__container}>
+                    <div className={finalStyle.final__small__block}>
+                        <div className={textStyle.small__text}>Сумма договора лизинга</div>
+                        <div className={finalStyle.final__price}>{sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} ₽</div>
+                    </div>
+
+                    <div className={finalStyle.final__small__block}>
+                        <div className={textStyle.small__text}>Ежемесячный платеж от</div>
+                        <div className={finalStyle.final__price}>{monthlyPayment.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} ₽</div>
+                    </div>
+                </div>
+                {
+                    (meta == "initial") ?
+                    <div className={finalStyle.final__button} onClick={postData}>Оставить заявку</div>:
+                    <div className={finalStyle.final__button__loading} />
+                }
+            </div>
+        </div>
     );
 }
 
