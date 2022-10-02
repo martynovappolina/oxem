@@ -3,7 +3,7 @@
 .final {
     &__main__container {
         display: flex;
-        width: 100%;
+        width: 78%;
         justify-content: space-between;
         margin-top: 51px;
     }
@@ -81,6 +81,10 @@
 
 @media (max-width:1024px) {
     .final {
+        &__small__container {
+            width: 78%;
+        }
+
         &__main__container {
             flex-direction: column;
         }
