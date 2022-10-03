@@ -28,10 +28,15 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 320px) {
     .title {
+        &__container {
+            margin-top: 20px;
+        }
+
         &__text {
             font-size: 34px;
+            padding-bottom: 10px;
         }
     }   
 }
