@@ -4,7 +4,7 @@
     background-color: #FFFF;
     width: 100%;
     box-sizing: border-box;
-    height: 95vh;
+    height: 100%;
     overflow: hidden;
 
     display: flex;
@@ -21,13 +21,13 @@
     }
 }
 
-@media (max-width: 768) {
+@media (max-width: 768px) {
     .main {
         width: 768px;
     }
 }
 
-@media (max-width: 320) {
+@media (max-width: 320px) {
     .main {
         width: 320px;
     }

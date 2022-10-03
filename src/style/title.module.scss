@@ -20,7 +20,15 @@
     }
 }
 
-@media (max-width: 768) {
+@media (max-width: 1240px) {
+    .title {
+        &__container {
+            margin-top: 40px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
     .title {
         &__text {
             font-size: 34px;
